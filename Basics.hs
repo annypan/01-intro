@@ -956,7 +956,7 @@ range :: Int -> Int -> [Int]
 **Step 3**: Define the function. This part is for you to do for your quiz.
 -}
 
-range i j = undefined
+range i j = if i > j then [] else i : range (i+1) j
 
 {-
 **Step 4**: Run the tests.
@@ -1004,7 +1004,10 @@ lists that have three or more elements.
 -}
 
 isLong :: [a] -> Bool
-isLong = undefined
+isLong [] = False
+isLong [_] = False
+isLong [_, _] = False
+isLong _ = True
 
 testIsLong :: Test
 testIsLong =
@@ -1125,7 +1128,8 @@ listIncr :: [Int] -> [Int]
 **Step 3**: Define the function.
 -}
 
-listIncr = undefined
+listIncr [] = []
+listIncr (x:xs) = (x+1) : listIncr xs
 
 {-
 **Step 4**: Run the tests.
